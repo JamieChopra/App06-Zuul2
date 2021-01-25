@@ -59,6 +59,8 @@ public class Game
     private void createRooms()
     {
         Room outside, theater, pub, lab, office;
+        Room cave, banditLair, groggsLair, groggRoom, groggTreasure, temple, discipleRoom, forgerRoom, bossRoom, romanRoom, femtoLair;
+
 
         // create the rooms
         outside = new Room("outside the main entrance of the university");
@@ -67,6 +69,17 @@ public class Game
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
 
+        cave = new Room("in a cave dwelling");
+        banditLair = new Room("in a bandits cave");
+        groggsLair = new Room("in a room containing a foul odour with bones littered around");
+        groggRoom = new Room("in Grogg: the king of trolls lair");
+        groggTreasure = new Room("in Groggs treasure room");
+        temple = new Room("outside a temple");
+        discipleRoom = new Room("in the temple");
+        forgerRoom = new Room("in Samithius: the god forgers workshop");
+        bossRoom = new Room("standing before Femto: the eternal");
+        romanRoom = new Room("in Roman: the head disciples tower");
+        femtoLair = new Room("in the room used to summon Femto: the eternal");
         // initialise room exits
         outside.setExit("east", theater);
         outside.setExit("south", lab);
