@@ -129,6 +129,8 @@ public class Game
         currentRoom = cave;  // start game outside
     }
 
+    
+
     /**
      * Print out the opening message for the player.
      */
