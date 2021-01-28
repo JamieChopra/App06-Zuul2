@@ -177,6 +177,14 @@ public class Game
         return mobList;
     }
 
+    Player myPlayer;
+
+    public Player createPlayer()
+    {
+        myPlayer = new Player(100, 10);
+        return myPlayer;
+    }
+
     /**
      * Print out the opening message for the player.
      */
@@ -282,6 +290,7 @@ public class Game
         }
     }
 
+
     private void roomCheck()
     {
         for(int i = 0; i < mobList.size() ;i++)
@@ -289,6 +298,8 @@ public class Game
             if(currentRoom == mobList.get(i).mobsRoom)
             {
                 System.out.println("You have entered combat");
+                Combat myComb = new Combat(mobList.get(i), myPlayer);
+                myPlayer.setHealth(100);
             }
         }
 
