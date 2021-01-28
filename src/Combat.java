@@ -11,12 +11,12 @@ private Scanner reader;
         {
             maxDmg = enemy.damage;
             reader = new Scanner(System.in);
-            while(enemy.health > 0)
+            while(enemy.health > 0 && play.health > 0)
             {
+                System.out.println("Player health = " + play.health);
+                System.out.println(enemy.name + " health = " + enemy.health);
                 takeInput(combatChoices(), enemy, play);
                 enemyAttack(enemy, play);
-                System.out.println("Player health = " + play.health);
-                System.out.println("Enemy health = " + enemy.health);
             }
         }
 
@@ -71,6 +71,11 @@ public int playerDefend(Mobs enemy, Player play)
         else if(takingInput.equals("Use"))
         {
 
+        }
+        else
+        {
+            System.out.println("Invalid input, please re-enter a command.");
+            takeInput(combatChoices(), enemy, play);
         }
     }
 

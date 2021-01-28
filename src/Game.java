@@ -35,6 +35,7 @@ public class Game
         mobList = new ArrayList<>();
         createRooms();
         createMobs();
+        createPlayer();
         play();
     }
 
@@ -297,9 +298,19 @@ public class Game
         {
             if(currentRoom == mobList.get(i).mobsRoom)
             {
-                System.out.println("You have entered combat");
+                System.out.println("You have entered combat with " + mobList.get(i).name);
                 Combat myComb = new Combat(mobList.get(i), myPlayer);
-                myPlayer.setHealth(100);
+                if(mobList.get(i).health <= 0)
+                    {
+                        System.out.println("You have defeated " + mobList.get(i).name);
+                        mobList.remove(i);
+                        myPlayer.setHealth(100);
+                    }
+                else if(myPlayer.health <= 0)
+                {
+                    System.out.println("You have been slain.");
+                    System.exit(3);
+                }
             }
         }
 
