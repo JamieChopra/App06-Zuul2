@@ -13,6 +13,7 @@ import java.util.Iterator;
  * stores a reference to the neighboring room.
  * 
  * @author  Michael Kölling and David J. Barnes
+ * Edited by Jamie Chopra
  * @version 2016.02.29
  */
 

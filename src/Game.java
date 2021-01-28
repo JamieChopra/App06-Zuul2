@@ -16,6 +16,7 @@
  * 
  * Modified and extended by Derek and Andrei
  */
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Game 
@@ -159,7 +160,7 @@ public class Game
         mobList.add( new Mobs(35,10));
         mobList.add( new Mobs(100, 20));
         mobList.add( new Mobs(50, 15));
-        mobList.add( new Mobs(120, 40));
+        mobList.add( new Mobs(120, 30));
         //Nerf SAMITHIUS
         mobList.add( new Mobs(150, 35));
         mobList.add( new Mobs(500, 60));
@@ -302,24 +303,30 @@ public class Game
         }
     }
 
+    /**
+     * Method that searches the list of items in the room that you are in and equips / gives player object the item if found in room.
+     */
     private void searchRoom(Room myRoom)
     {
         boolean check = false;
         for(int i=0; i<itemList.size(); i++) {
             if (myRoom == itemList.get(i).itemRoom) {
                 if (itemList.get(i).name.equals("Armour")) {
+                    itemList.get(i).playerHolding();
+                    myPlayer.equipArmour();
                     myPlayer.shieldHealth();
-
                     System.out.println("You have found armour");
                 } else if (itemList.get(i).name.equals("Sword")) {
+                    itemList.get(i).playerHolding();
+                    myPlayer.equipSword();
                     myPlayer.swordDMG();
                     System.out.println("You have found a sword");
                 } else if (itemList.get(i).name.equals("Dragonsbane")) {
+                    itemList.get(i).playerHolding();
                     myPlayer.equipBane();
                     System.out.println("You have found Dragonsbane");
                 }
                 check = true;
-                itemList.remove(i);
             }
         }
         if(!check)
@@ -344,7 +351,9 @@ public class Game
         }
     }
 
-
+    /**
+     * Method for searching room for mob object
+     */
     private void roomCheck()
     {
         for(int i = 0; i < mobList.size() ;i++)
@@ -353,7 +362,13 @@ public class Game
             {
                 System.out.println("You have entered combat with " + mobList.get(i).name);
                 Combat myComb = new Combat(mobList.get(i), myPlayer, myDrag);
-                if(mobList.get(i).health <= 0)
+                if(mobList.get(i).health <= 0 && mobList.get(i).name.equals("Femto: the eternal"))
+                {
+                    System.out.println("Congratulations, you hav defeated the dragon femto and have saved the kingsom");
+                    System.out.println("Your final score is: " + myPlayer.score);
+                    System.exit(3);
+                }
+                else if(mobList.get(i).health <= 0)
                     {
                         System.out.println("You have defeated " + mobList.get(i).name);
                         mobList.remove(i);

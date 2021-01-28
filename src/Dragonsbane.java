@@ -6,12 +6,11 @@ public class Dragonsbane extends Items
 
     public Dragonsbane(String thisName, Room thisRoom, Player mPlay) {
         super(thisName, thisRoom);
-        playerHolding();
         hasBane(mPlay);
     }
 
     /**
-     * When isholding is true equip the dragonsbane
+     * When is holding is true equip the dragonsbane
      */
     public void hasBane(Player banePlay)
     {

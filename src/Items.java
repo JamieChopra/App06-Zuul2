@@ -33,6 +33,9 @@ public class Items {
         return itemRoom;
     }
 
+    /**
+     * Method for equipping dragonsbane
+     */
     public void hasBane(Player banePlay)
     {
         if(isHolding)

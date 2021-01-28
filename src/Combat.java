@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * Class for combat
+ */
+
 public class Combat
 {
 public int maxDmg = 0;
@@ -21,6 +25,9 @@ private Scanner reader;
             }
         }
 
+    /**
+     * Method for enemy entities to damage the player object
+     */
 public int enemyAttack(Mobs enemy, Player play)
 {
     play.takeDamage(enemy.damage);
@@ -28,20 +35,28 @@ public int enemyAttack(Mobs enemy, Player play)
     return play.health;
 }
 
-public int playerAttack(Mobs enemy, Player play)
+    /**
+     * Method for player object to damage enemy object
+     */
+    public int playerAttack(Mobs enemy, Player play)
 {
     enemy.takeDamage(play.damage);
     return enemy.health;
 }
 
-public int playerDefend(Mobs enemy, Player play)
+    /**
+     * Method for player to reduce enemy damage by 50% and restore 25 health
+     */
+    public int playerDefend(Mobs enemy, Player play)
     {
         enemy.damage /= 2;
         play.restoreHealth(25);
         return enemy.damage;
     }
 
-
+    /**
+     * Prints all the options for combat when in combat
+     */
     public String combatChoices()
     {
         System.out.println("Attack");
@@ -53,6 +68,9 @@ public int playerDefend(Mobs enemy, Player play)
 
     }
 
+    /**
+     * Allows the user to input which option they want to whilst in combat and calls the method in which they type.
+     */
     public void takeInput(String takingInput, Mobs enemy, Player play, Dragonsbane db)
     {
         if(takingInput.equals("Attack") && play.energy >= 20)

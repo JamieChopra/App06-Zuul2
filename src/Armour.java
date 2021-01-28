@@ -7,7 +7,6 @@ public class Armour extends Items
     public Armour(String thisName, Room thisRoom, Player myPlayer)
     {
         super(thisName, thisRoom);
-        playerHolding();
         armourHealth(myPlayer);
     }
 

@@ -15,57 +15,72 @@ public class Player extends Entities
         swordDMG();
     }
 
+    /**
+     * Sets the base energy for a player
+     */
     public int setEnergy()
     {
         energy = 100;
         return energy;
     }
 
+    /**
+     * Method for using energy (used in Attack and Defend)
+     */
     public int useEnergy(int usingEnergy)
     {
         energy -= usingEnergy;
         return energy;
     }
 
+    /**
+     * Method for restoring energy (used in rest)
+     */
     public int restoreEnergy(int restoringEnergy)
     {
         energy += restoringEnergy;
         return energy;
     }
 
+    /**
+     * Method for restoring health
+     */
     public int restoreHealth(int restoringHealth)
     {
         health += restoringHealth;
         return health;
     }
 
+    /**
+     * Method that resets health after fighting a mob object (resets to 200 if armour is equip)
+     */
      public void shieldHealth()
      {
          if(hasArmour)
          {
-             System.out.println("Has it");
              setHealth(200);
          }
          else
          {
-             System.out.println("Doesn't have it");
              setHealth(100);
          }
      }
 
+    /**
+     * Method for increasing damage if sword is equip
+     */
     public void swordDMG()
     {
         if(hasSword)
         {
-            System.out.println("Has it");
             setDamage(35);
         }
         else
         {
-            System.out.println("Doesn't have it");
             setDamage(10);
         }
     }
+
 
     public int addScore()
     {
