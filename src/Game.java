@@ -102,34 +102,34 @@ public class Game
         roomList.add(romanRoom);
         roomList.add(femtoLair);
 
-        cave.setExit("north", banditLair);
+        cave.setExit("south", banditLair);
 
-        banditLair.setExit("west", groggsLair);
-        banditLair.setExit("east", temple);
-        banditLair.setExit("south", cave);
+        banditLair.setExit("east", groggsLair);
+        banditLair.setExit("west", temple);
+        banditLair.setExit("north", cave);
 
-        temple.setExit("north", discipleRoom);
-        temple.setExit("west", banditLair);
+        temple.setExit("south", discipleRoom);
+        temple.setExit("east", banditLair);
 
-        discipleRoom.setExit("north", forgerRoom);
-        discipleRoom.setExit("east", romanRoom);
-        discipleRoom.setExit("south", temple);
+        discipleRoom.setExit("south", forgerRoom);
+        discipleRoom.setExit("west", romanRoom);
+        discipleRoom.setExit("north", temple);
 
-        romanRoom.setExit("north", femtoLair);
-        romanRoom.setExit("south", discipleRoom);
+        romanRoom.setExit("west", femtoLair);
+        romanRoom.setExit("east", discipleRoom);
 
-        femtoLair.setExit("south", romanRoom);
+        femtoLair.setExit("east", romanRoom);
 
-        forgerRoom.setExit("south", discipleRoom);
-        forgerRoom.setExit("west", bossRoom);
+        forgerRoom.setExit("north", discipleRoom);
+        forgerRoom.setExit("east", bossRoom);
 
-        bossRoom.setExit("south", forgerRoom);
+        bossRoom.setExit("west", forgerRoom);
 
-        groggsLair.setExit("south", banditLair);
-        groggsLair.setExit("north", groggRoom);
+        groggsLair.setExit("west", banditLair);
+        groggsLair.setExit("east", groggRoom);
 
-        groggRoom.setExit("south", groggsLair);
-        groggRoom.setExit("west", groggTreasure);
+        groggRoom.setExit("west", groggsLair);
+        groggRoom.setExit("north", groggTreasure);
 
         groggTreasure.setExit("south", groggRoom);
 
@@ -362,9 +362,9 @@ public class Game
             {
                 System.out.println("You have entered combat with " + mobList.get(i).name);
                 Combat myComb = new Combat(mobList.get(i), myPlayer, myDrag);
-                if(mobList.get(i).health <= 0 && mobList.get(i).name.equals("Femto: the eternal"))
+                if(mobList.get(i).health <= 0 && mobList.get(i).name.equals("Femto: The Eternal"))
                 {
-                    System.out.println("Congratulations, you hav defeated the dragon femto and have saved the kingsom");
+                    System.out.println("Congratulations, you have defeated the dragon femto and have saved the kingdom");
                     System.out.println("Your final score is: " + myPlayer.score);
                     System.exit(3);
                 }
