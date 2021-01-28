@@ -16,11 +16,14 @@
  * 
  * Modified and extended by Derek and Andrei
  */
+import java.util.ArrayList;
 
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
+    public ArrayList<Mobs> mobList;
+    public ArrayList<Room> roomList;
         
     /**
      * Create the game and initialise its internal map.
@@ -56,7 +59,7 @@ public class Game
     /**
      * Create all the rooms and link their exits together.
      */
-    private void createRooms()
+    private ArrayList<Room> createRooms()
     {
         Room outside, theater, pub, lab, office;
         Room cave, banditLair, groggsLair, groggRoom, groggTreasure, temple, discipleRoom, forgerRoom, bossRoom, romanRoom, femtoLair;
@@ -80,6 +83,18 @@ public class Game
         bossRoom = new Room("standing before Femto: the eternal");
         romanRoom = new Room("in Roman: the head disciples tower");
         femtoLair = new Room("in the room used to summon Femto: the eternal");
+
+        roomList.add(cave);
+        roomList.add(banditLair);
+        roomList.add(groggsLair);
+        roomList.add(groggRoom);
+        roomList.add(groggTreasure);
+        roomList.add(temple);
+        roomList.add(discipleRoom);
+        roomList.add(forgerRoom);
+        roomList.add(bossRoom);
+        roomList.add(romanRoom);
+        roomList.add(femtoLair);
 
         cave.setExit("north", banditLair);
 
@@ -127,9 +142,37 @@ public class Game
 //        office.setExit("west", lab);
 
         currentRoom = cave;  // start game outside
+
+        return roomList;
     }
 
-    
+    //Method for creating a list with mobs health, damage, name and room
+    private ArrayList<Mobs> createMobs()
+    {
+        mobList.add( new Mobs(35,10));
+        mobList.add( new Mobs(100, 20));
+        mobList.add( new Mobs(50, 15));
+        mobList.add( new Mobs(125, 35));
+        mobList.add( new Mobs(200, 50));
+        mobList.add( new Mobs(500, 60));
+
+        mobList.get(0).setName("Looting Bandits");
+        mobList.get(1).setName("Grogg: King of Trolls");
+        mobList.get(2).setName("Femtos Disciples");
+        mobList.get(3).setName("Roman: The Head Disciple");
+        mobList.get(4).setName("Samithius: The God Forger");
+        mobList.get(5).setName("Femto: The Eternal");
+
+        //Setting mobs to rooms
+        mobList.get(0).setRoom(roomList.get(1));
+        mobList.get(1).setRoom(roomList.get(3));
+        mobList.get(2).setRoom(roomList.get(6));
+        mobList.get(3).setRoom(roomList.get(9));
+        mobList.get(4).setRoom(roomList.get(7));
+        mobList.get(5).setRoom(roomList.get(8));
+
+        return mobList;
+    }
 
     /**
      * Print out the opening message for the player.
