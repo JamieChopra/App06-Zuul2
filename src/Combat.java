@@ -14,6 +14,7 @@ private Scanner reader;
             while(enemy.health > 0 && play.health > 0)
             {
                 System.out.println("Player health = " + play.health);
+                System.out.println("Player energy = " + play.energy);
                 System.out.println(enemy.name + " health = " + enemy.health);
                 takeInput(combatChoices(), enemy, play);
                 enemyAttack(enemy, play);
@@ -36,6 +37,7 @@ public int playerAttack(Mobs enemy, Player play)
 public int playerDefend(Mobs enemy, Player play)
     {
         enemy.damage /= 2;
+        play.restoreHealth(25);
         return enemy.damage;
     }
 
@@ -53,19 +55,21 @@ public int playerDefend(Mobs enemy, Player play)
 
     public void takeInput(String takingInput, Mobs enemy, Player play)
     {
-        if(takingInput.equals("Attack"))
+        if(takingInput.equals("Attack") && play.energy >= 20)
         {
             playerAttack(enemy, play);
+            play.useEnergy(20);
         }
 
-        else if(takingInput.equals("Defend"))
+        else if(takingInput.equals("Defend") && play.energy >= 10)
         {
             playerDefend(enemy, play);
+            play.useEnergy(10);
         }
 
         else if(takingInput.equals("Rest"))
         {
-
+            play.setEnergy();
         }
 
         else if(takingInput.equals("Use"))
@@ -74,8 +78,22 @@ public int playerDefend(Mobs enemy, Player play)
         }
         else
         {
-            System.out.println("Invalid input, please re-enter a command.");
-            takeInput(combatChoices(), enemy, play);
+            if(takingInput.equals("Attack") && play.energy < 20)
+            {
+                System.out.println("You do not have sufficient energy to Attack.");
+                System.out.println("You must rest to restore energy.");
+            }
+
+            else if(takingInput.equals("Defend") && play.energy < 10)
+            {
+                System.out.println("You do not have sufficient energy to Defend.");
+                System.out.println("You must rest to restore energy.");
+            }
+            else
+            {
+                System.out.println("Invalid input, please re-enter a command.");
+                takeInput(combatChoices(), enemy, play);
+            }
         }
     }
 

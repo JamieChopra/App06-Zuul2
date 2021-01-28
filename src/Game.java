@@ -305,6 +305,9 @@ public class Game
                         System.out.println("You have defeated " + mobList.get(i).name);
                         mobList.remove(i);
                         myPlayer.setHealth(100);
+                        myPlayer.setEnergy();
+                        myPlayer.addScore();
+                        System.out.println("Your current score is: " + myPlayer.score);
                     }
                 else if(myPlayer.health <= 0)
                 {

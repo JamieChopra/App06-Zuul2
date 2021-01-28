@@ -2,6 +2,7 @@
 public class Player extends Entities
 {
     int energy = 0;
+    int score = 0;
     boolean hasKey = false;
     boolean hasSword = false;
     boolean hasArmour = false;
@@ -21,13 +22,25 @@ public class Player extends Entities
 
     public int useEnergy(int usingEnergy)
     {
-        energy = usingEnergy;
+        energy -= usingEnergy;
         return energy;
     }
 
     public int restoreEnergy(int restoringEnergy)
     {
-        energy = restoringEnergy;
+        energy += restoringEnergy;
         return energy;
+    }
+
+    public int restoreHealth(int restoringHealth)
+    {
+        health += restoringHealth;
+        return health;
+    }
+
+    public int addScore()
+    {
+        score += 100;
+        return score;
     }
 }
