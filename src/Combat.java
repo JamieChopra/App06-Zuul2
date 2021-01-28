@@ -53,7 +53,7 @@ public int playerDefend(Mobs enemy, Player play)
 
     }
 
-    public void takeInput(String takingInput, Mobs enemy, Player play)
+    public void takeInput(String takingInput, Mobs enemy, Player play, Dragonsbane db)
     {
         if(takingInput.equals("Attack") && play.energy >= 20)
         {
@@ -74,6 +74,25 @@ public int playerDefend(Mobs enemy, Player play)
 
         else if(takingInput.equals("Use"))
         {
+            if(enemy.name == "Femto: The Eternal" && db.isHolding)
+            {
+                enemy.setHealth(enemy.health/2);
+            }
+            else if(enemy.name != "Femto: The Eternal" && db.isHolding)
+            {
+                System.out.println("Cannot use an item against this enemy");
+                takeInput(combatChoices(), enemy, play, db);
+            }
+            else if(enemy.name == "Femto: The Eternal")
+            {
+                System.out.println("No items to use");
+                takeInput(combatChoices(), enemy, play, db);
+            }
+            else
+            {
+                System.out.println("Cannot do that right now");
+                takeInput(combatChoices(), enemy, play, db);
+            }
 
         }
         else
@@ -92,7 +111,7 @@ public int playerDefend(Mobs enemy, Player play)
             else
             {
                 System.out.println("Invalid input, please re-enter a command.");
-                takeInput(combatChoices(), enemy, play);
+                takeInput(combatChoices(), enemy, play, db);
             }
         }
     }

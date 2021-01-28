@@ -36,6 +36,7 @@ public class Game
         createRooms();
         createMobs();
         createPlayer();
+        createItems();
         play();
     }
 
@@ -150,7 +151,9 @@ public class Game
         return roomList;
     }
 
-    //Method for creating a list with mobs health, damage, name and room
+    /**
+     * Method for creating a list with mobs health, damage, name and room
+     */
     private ArrayList<Mobs> createMobs()
     {
         mobList.add( new Mobs(35,10));
@@ -184,6 +187,18 @@ public class Game
     {
         myPlayer = new Player(100, 10);
         return myPlayer;
+    }
+
+    Armour myArmour;
+    Sword mySword;
+
+    public Items createItems()
+    {
+        myArmour = new Armour( "Armour",roomList.get(0) , myPlayer);
+        myPlayer.shieldHealth();
+        mySword = new Sword("Sword", roomList.get(0), myPlayer);
+        myPlayer.swordDMG();
+        return myArmour;
     }
 
     /**
@@ -304,7 +319,7 @@ public class Game
                     {
                         System.out.println("You have defeated " + mobList.get(i).name);
                         mobList.remove(i);
-                        myPlayer.setHealth(100);
+                        myPlayer.shieldHealth();
                         myPlayer.setEnergy();
                         myPlayer.addScore();
                         System.out.println("Your current score is: " + myPlayer.score);
