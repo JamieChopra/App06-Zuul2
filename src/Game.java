@@ -159,8 +159,9 @@ public class Game
         mobList.add( new Mobs(35,10));
         mobList.add( new Mobs(100, 20));
         mobList.add( new Mobs(50, 15));
-        mobList.add( new Mobs(125, 35));
-        mobList.add( new Mobs(200, 50));
+        mobList.add( new Mobs(120, 40));
+        //Nerf SAMITHIUS
+        mobList.add( new Mobs(150, 35));
         mobList.add( new Mobs(500, 60));
 
         mobList.get(0).setName("Looting Bandits");
@@ -191,14 +192,21 @@ public class Game
 
     Armour myArmour;
     Sword mySword;
+    Dragonsbane myDrag;
+    ArrayList<Items> itemList = new ArrayList<>();
 
-    public Items createItems()
+
+    public ArrayList<Items> createItems()
     {
-        myArmour = new Armour( "Armour",roomList.get(0) , myPlayer);
-        myPlayer.shieldHealth();
+        myArmour = new Armour( "Armour",roomList.get(4) , myPlayer);
+
         mySword = new Sword("Sword", roomList.get(0), myPlayer);
-        myPlayer.swordDMG();
-        return myArmour;
+
+        myDrag = new Dragonsbane("Dragonsbane", roomList.get(10), myPlayer);
+        itemList.add(myArmour);
+        itemList.add(mySword);
+        itemList.add(myDrag);
+        return itemList;
     }
 
     /**
@@ -207,8 +215,9 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the kingdom of Zorb");
+        System.out.println("A cult nearby has recently Awakened a forgotten dragon from its slumber in hopes to destroy the kingdom.");
+        System.out.println("You awake to find yourself in a cave, the only person able to stop this creature from following through with its destructive plans");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -241,6 +250,9 @@ public class Game
 
             case QUIT:
                 wantToQuit = quit(command);
+                break;
+            case SEARCH:
+                searchRoom(currentRoom);
                 break;
         }
         return wantToQuit;
@@ -290,6 +302,32 @@ public class Game
         }
     }
 
+    private void searchRoom(Room myRoom)
+    {
+        boolean check = false;
+        for(int i=0; i<itemList.size(); i++) {
+            if (myRoom == itemList.get(i).itemRoom) {
+                if (itemList.get(i).name.equals("Armour")) {
+                    myPlayer.shieldHealth();
+
+                    System.out.println("You have found armour");
+                } else if (itemList.get(i).name.equals("Sword")) {
+                    myPlayer.swordDMG();
+                    System.out.println("You have found a sword");
+                } else if (itemList.get(i).name.equals("Dragonsbane")) {
+                    myPlayer.equipBane();
+                    System.out.println("You have found Dragonsbane");
+                }
+                check = true;
+                itemList.remove(i);
+            }
+        }
+        if(!check)
+        {
+            System.out.println("There is nothing in this room");
+        }
+    }
+
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.
@@ -314,7 +352,7 @@ public class Game
             if(currentRoom == mobList.get(i).mobsRoom)
             {
                 System.out.println("You have entered combat with " + mobList.get(i).name);
-                Combat myComb = new Combat(mobList.get(i), myPlayer);
+                Combat myComb = new Combat(mobList.get(i), myPlayer, myDrag);
                 if(mobList.get(i).health <= 0)
                     {
                         System.out.println("You have defeated " + mobList.get(i).name);

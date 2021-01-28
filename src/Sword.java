@@ -1,3 +1,6 @@
+/**
+ * Class for Sword Item
+ */
 public class Sword extends Items
 {
 
@@ -7,6 +10,9 @@ public class Sword extends Items
         swordDamage(myPlay);
     }
 
+    /**
+     * When holding the sword it equips it
+     */
     public void swordDamage(Player swordPlayer)
     {
         if(isHolding)

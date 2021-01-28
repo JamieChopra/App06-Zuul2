@@ -84,4 +84,15 @@ public class Player extends Entities
         hasSword = true;
         return hasSword;
     }
+
+    public boolean equipBane()
+    {
+        hasDragonsbane = true;
+        return hasDragonsbane;
+    }
+    public boolean destroyBane()
+    {
+        hasDragonsbane = false;
+        return hasDragonsbane;
+    }
 }

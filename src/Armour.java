@@ -1,3 +1,6 @@
+/**
+ * Class for armour item
+ */
 public class Armour extends Items
 {
 

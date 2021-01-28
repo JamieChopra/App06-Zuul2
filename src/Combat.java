@@ -7,7 +7,7 @@ private Scanner reader;
 
 
 
-    public Combat(Mobs enemy, Player play)
+    public Combat(Mobs enemy, Player play, Dragonsbane db)
         {
             maxDmg = enemy.damage;
             reader = new Scanner(System.in);
@@ -16,7 +16,7 @@ private Scanner reader;
                 System.out.println("Player health = " + play.health);
                 System.out.println("Player energy = " + play.energy);
                 System.out.println(enemy.name + " health = " + enemy.health);
-                takeInput(combatChoices(), enemy, play);
+                takeInput(combatChoices(), enemy, play, db);
                 enemyAttack(enemy, play);
             }
         }
@@ -76,7 +76,9 @@ public int playerDefend(Mobs enemy, Player play)
         {
             if(enemy.name == "Femto: The Eternal" && db.isHolding)
             {
-                enemy.setHealth(enemy.health/2);
+                enemy.setHealth(enemy.health/5);
+                enemy.setDamage(enemy.damage/2);
+                play.destroyBane();
             }
             else if(enemy.name != "Femto: The Eternal" && db.isHolding)
             {

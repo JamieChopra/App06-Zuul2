@@ -32,4 +32,12 @@ public class Items {
         itemRoom = myRoom;
         return itemRoom;
     }
+
+    public void hasBane(Player banePlay)
+    {
+        if(isHolding)
+        {
+            banePlay.equipBane();
+        }
+    }
 }
