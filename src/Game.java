@@ -31,7 +31,10 @@ public class Game
     public Game() 
     {
         parser = new Parser();
+        roomList = new ArrayList<>();
+        mobList = new ArrayList<>();
         createRooms();
+        createMobs();
         play();
     }
 
@@ -258,6 +261,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
+            roomCheck();
             System.out.println(currentRoom.getLongDescription());
         }
     }
@@ -276,5 +280,17 @@ public class Game
         else {
             return true;  // signal that we want to quit
         }
+    }
+
+    private void roomCheck()
+    {
+        for(int i = 0; i < mobList.size() ;i++)
+        {
+            if(currentRoom == mobList.get(i).mobsRoom)
+            {
+                System.out.println("You have entered combat");
+            }
+        }
+
     }
 }
