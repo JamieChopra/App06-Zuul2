@@ -1,0 +1,254 @@
+C:\Users\jwc25\.jdks\openjdk-15.0.2\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\lib\idea_rt.jar=52579:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\jwc25\OneDrive\Documents\GitHub\App06-Zuul2\out\production\App06-Zuul Main
+
+Welcome to the kingdom of Zorb
+A cult nearby has recently Awakened a forgotten dragon from its slumber in hopes to destroy the kingdom.
+You awake to find yourself in a cave, the only person able to stop this creature from following through with its destructive plans
+Type 'help' if you need help.
+
+You are in a cave dwelling.
+Exits: south
+> search
+You have found a sword
+> go west
+There is no door!
+> go south
+You have entered combat with Looting Bandits
+Player health = 100
+Player energy = 100
+Looting Bandits health = 35
+Attack
+Defend
+Rest
+Use
+Attack
+You have defeated Looting Bandits
+Your current score is: 100
+You are in a bandits cave.
+Exits: east north west
+> go east
+You are in a room containing a foul odour with bones littered around.
+Exits: east west
+> go east
+You have entered combat with Grogg: King of Trolls
+Player health = 100
+Player energy = 100
+Grogg: King of Trolls health = 100
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 80
+Player energy = 80
+Grogg: King of Trolls health = 65
+Attack
+Defend
+Rest
+Use
+Defend
+Player health = 95
+Player energy = 70
+Grogg: King of Trolls health = 65
+Attack
+Defend
+Rest
+Use
+Rest
+Player health = 75
+Player energy = 100
+Grogg: King of Trolls health = 65
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 55
+Player energy = 80
+Grogg: King of Trolls health = 30
+Attack
+Defend
+Rest
+Use
+Attack
+You have defeated Grogg: King of Trolls
+Your current score is: 200
+You are in Grogg: the king of trolls lair.
+Exits: north west
+> go north
+You are in Groggs treasure room.
+Exits: south
+> search
+You have found armour
+> go south
+You are in Grogg: the king of trolls lair.
+Exits: north west
+> go west
+You are in a room containing a foul odour with bones littered around.
+Exits: east west
+> go west
+You are in a bandits cave.
+Exits: east north west
+> go west
+You are outside a temple.
+Exits: east south
+> go south
+You have entered combat with Femtos Disciples
+Player health = 200
+Player energy = 100
+Femtos Disciples health = 50
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 185
+Player energy = 80
+Femtos Disciples health = 15
+Attack
+Defend
+Rest
+Use
+Attack
+You have defeated Femtos Disciples
+Your current score is: 300
+You are in the temple.
+Exits: south north west
+> go west
+You have entered combat with Roman: The Head Disciple
+Player health = 200
+Player energy = 100
+Roman: The Head Disciple health = 120
+Attack
+Defend
+Rest
+Use
+Kill
+Invalid input, please re-enter a command.
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 170
+Player energy = 80
+Roman: The Head Disciple health = 85
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 140
+Player energy = 60
+Roman: The Head Disciple health = 50
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 110
+Player energy = 40
+Roman: The Head Disciple health = 15
+Attack
+Defend
+Rest
+Use
+Attack
+You have defeated Roman: The Head Disciple
+Your current score is: 400
+You are in Roman: the head disciples tower.
+Exits: east west
+> go west
+You are in the room used to summon Femto: the eternal.
+Exits: east
+> search
+You have found Dragonsbane
+> go east
+You are in Roman: the head disciples tower.
+Exits: east west
+> go east
+You are in the temple.
+Exits: south north west
+> go south
+You have entered combat with Samithius: The God Forger
+Player health = 200
+Player energy = 100
+Samithius: The God Forger health = 150
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 165
+Player energy = 80
+Samithius: The God Forger health = 115
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 130
+Player energy = 60
+Samithius: The God Forger health = 80
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 95
+Player energy = 40
+Samithius: The God Forger health = 45
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 60
+Player energy = 20
+Samithius: The God Forger health = 10
+Attack
+Defend
+Rest
+Use
+Attack
+You have defeated Samithius: The God Forger
+Your current score is: 500
+You are in Samithius: the god forgers workshop.
+Exits: east north
+> go east
+You have entered combat with Femto: The Eternal
+Player health = 200
+Player energy = 100
+Femto: The Eternal health = 500
+Attack
+Defend
+Rest
+Use
+Use
+Player health = 170
+Player energy = 100
+Femto: The Eternal health = 100
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 110
+Player energy = 80
+Femto: The Eternal health = 65
+Attack
+Defend
+Rest
+Use
+Attack
+Player health = 50
+Player energy = 60
+Femto: The Eternal health = 30
+Attack
+Defend
+Rest
+Use
+Attack
+Congratulations, you have defeated the dragon femto and have saved the kingdom
+Your final score is: 500
+
+Process finished with exit code 3
