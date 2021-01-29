@@ -14,7 +14,7 @@
  * @author  Michael Kölling and David J. Barnes
  * @version 2016.02.29
  * 
- * Modified and extended by Derek and Andrei
+ * Modified and extended by Jamie Chopra
  */
 import java.sql.SQLOutput;
 import java.util.ArrayList;
